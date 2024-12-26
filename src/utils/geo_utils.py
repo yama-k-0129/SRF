@@ -45,7 +45,7 @@ def find_nearest_point_data(
     is_above_threshold = value > threshold
     
     # メッシュ番号変換
-    i0 = metadata.ny - y_index1  # readerの参照を削除
-    j0 = x_index1
+    i0 = metadata.ny - y_index0  # readerの参照を削除
+    j0 = x_index0
     
     return nearest_x, nearest_y, value, is_above_threshold, i0, j0
