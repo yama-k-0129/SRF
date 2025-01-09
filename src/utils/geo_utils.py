@@ -25,12 +25,12 @@ def find_nearest_point_data(
     格子のインデックスを使用して検索を行う
     """
     # 目標地点と南西端との差分を計算
-    dx = target_lon - float(xllcorner)
-    dy = target_lat - float(yllcorner)
+    dx = target_lon - xllcorner
+    dy = target_lat - yllcorner
     
     # セルサイズで割って、インデックスを計算(0スタートpython用)
-    x_index0 = math.floor(dx / cellsize)
-    y_index0 = math.floor(dy / cellsize)
+    x_index0 = math.ceil(dx / cellsize)
+    y_index0 = math.ceil(dy / cellsize)
     
     # セルサイズで割って、インデックスを計算(1スタートpython用)
     x_index1 = math.ceil(dx / cellsize)
@@ -45,7 +45,7 @@ def find_nearest_point_data(
     is_above_threshold = value > threshold
     
     # メッシュ番号変換
-    i0 = metadata.ny - y_index0  # readerの参照を削除
-    j0 = x_index0
+    i0 = metadata.ny - y_index1 + 1  # readerの参照を削除
+    j0 = x_index1
     
     return nearest_x, nearest_y, value, is_above_threshold, i0, j0
