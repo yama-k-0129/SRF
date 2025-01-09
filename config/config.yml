@@ -1,18 +1,26 @@
 file_paths:
+  # Topographic data files
   dir_file: "kuzuryu_data/topo/dir.txt" # 流向ファイルのパス [input]
   upg_file: "kuzuryu_data/topo/acc.txt" # 上流ピクセル数のファイルパス [input]
   dem_file: "kuzuryu_data/topo/dem.txt" # 標高データのファイルパス [input]
   landuse_file: "kuzuryu_data/topo/landuse.txt" # 土地利用のファイルパス  [input]
+  
+  # Analysis results
   distance_file: "log/dir.txt_distance.txt" # 流下距離のファイルパス [output]
   elevation_file: "log/dem.txt_extracted.txt" # 抽出後の標高データファイルパス [output]
   landuse_extracted_file: "log/landuse.txt_extracted.txt" # 抽出後の土地利用ファイルパス [output]
   timedelay_file: "log/flood_arrival_time.asc" # 抽出領域の洪水到達時間ファイルパス [output]
+  
+  # Input/Output data files
   rainfall_file: "input/rainfall_asuwatyuryu.csv" # 降雨量データ(mm/h) ファイルパス　[input]
-  flow_results_file: "out/asuwatyuryu_flow2.csv" # 流出量(m^3/s)ファイルパス [output]
+  flow_results_file: "out/asuwatyuryu_flow_test.csv" # 流出量(m^3/s)ファイルパス [output]
+  
+  # External tools
   extract_basin_exe: "src/extract_basin/extract_basin.exe" # 流域抽出実行ファイルのパス [input]
 
+analysis_points:
+  input_file: "input/analysis_points.csv" # 解析地点ファイル [input]
+
 parameters:
-  target_lon: 136.2951267 # 経度
-  target_lat: 36.0215013 # 緯度
   threshold: 15 # 河川セル判定閾値(デフォルト:15)
   dtq: 600  # 出力時間間隔（秒）
