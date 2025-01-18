@@ -28,13 +28,13 @@ def find_nearest_point_data(
     dx = target_lon - xllcorner
     dy = target_lat - yllcorner
     
-    # セルサイズで割って、インデックスを計算(0スタートpython用)
-    x_index0 = math.ceil(dx / cellsize)
-    y_index0 = math.ceil(dy / cellsize)
-    
     # セルサイズで割って、インデックスを計算(1スタートpython用)
     x_index1 = math.ceil(dx / cellsize)
     y_index1 = math.ceil(dy / cellsize)
+    
+    # セルサイズで割って、インデックスを計算(0スタートpython用)
+    x_index0 = x_index1 - 1
+    y_index0 = y_index1 - 1
     
     # 該当するグリッドポイントの座標とデータを取得
     nearest_x = x_coords[x_index0, y_index0]
